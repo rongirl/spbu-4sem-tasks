@@ -5,5 +5,5 @@ let rec factorial number acc =
     if number = 0 then 
         acc
     else 
-        factorial(number - 1) (acc * number)
+        factorial (number - 1) (acc * number)
 printfn $"Result: {factorial number 1}"
