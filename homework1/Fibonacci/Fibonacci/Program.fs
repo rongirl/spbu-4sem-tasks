@@ -2,7 +2,9 @@
 let input = System.Console.ReadLine()
 let number = input |> int
 let fibonacci number =
-    if number = 0 then
+    if number <  0 then 
+        invalidArg (nameof number) "Number is negative"
+    elif number = 0 then
         0
     elif  number = 1 then
         1
