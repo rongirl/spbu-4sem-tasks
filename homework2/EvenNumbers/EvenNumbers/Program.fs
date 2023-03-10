@@ -10,5 +10,3 @@ let numberOfEvenNumbersMap list =
 
 let numberOfEvenNumbersFilter list =
     list |> List.filter(fun number -> number % 2 = 0) |> List.length
-
-let r = numberOfEvenNumbersMap [-4 .. 5]
