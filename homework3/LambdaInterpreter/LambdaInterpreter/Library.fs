@@ -23,7 +23,6 @@ let getNewVariable set =
         | false -> var 
     getNextVariable "a"
 
-
 let rec substitute variable body term =
     match body with 
     | Variable var when var = variable -> term
@@ -35,7 +34,6 @@ let rec substitute variable body term =
     | LambdaAbstraction (var, term1) -> 
         let newVariable = Set.union (freeVariables term1) (freeVariables term) |> getNewVariable 
         LambdaAbstraction(newVariable, substitute variable (substitute var term1 (Variable(newVariable))) term)
-
 
 let rec betaReduce term =
     match term with
