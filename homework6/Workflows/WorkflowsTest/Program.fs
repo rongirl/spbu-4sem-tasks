@@ -38,8 +38,8 @@ let TestCalculate() =
 let TestCalculateNone() =
     let calculate = StringCalculate()
     let res = calculate {
-        let! x = "заходит как-то сын в бар а там сидят мама, сосед, и директор школы"
-        let! y = "директор говорит а гвозди а сосед отвечает: вот у него в рюкзаке"
+        let! x = ":)"
+        let! y = ":("
         let z = x - y
         return z
     }
