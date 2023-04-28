@@ -1,5 +1,4 @@
-﻿namespace Lazy
+﻿module Lazy
 
-module Say =
-    let hello name =
-        printfn "Hello %s" name
+type ILazy<'a> =
+    abstract member Get: unit -> 'a
