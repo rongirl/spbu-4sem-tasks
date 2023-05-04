@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Library.fs" />
+    <Compile Include="LazyWithThreads.fs" />
+    <Compile Include="ILazy.fs" />
+    <Compile Include="Lazy.fs" />
   </ItemGroup>
 
 </Project>
