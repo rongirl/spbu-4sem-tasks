@@ -1,4 +1,4 @@
-﻿module Lazy
+﻿module Lazy.Lazy
 
 open LazyInterface
 

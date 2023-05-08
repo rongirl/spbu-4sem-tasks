@@ -1,8 +1,8 @@
-﻿module LazyWithThreads
+﻿module Lazy.LazyWithLock
 
 open LazyInterface
 
-type LazyWithThreads<'a>(supplier: unit -> 'a) =
+type LazyWithLock<'a>(supplier: unit -> 'a) =
     let mutable result = None
     let lockObj = obj()
 

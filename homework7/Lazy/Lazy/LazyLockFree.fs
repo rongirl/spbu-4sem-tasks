@@ -1,9 +1,9 @@
-﻿module LazyLockFree
+﻿module Lazy.LazyLockFree
 
 open System.Threading
 open LazyInterface
 
-type LazyWithThreads<'a>(supplier: unit -> 'a) =
+type LazyLockFree<'a>(supplier: unit -> 'a) =
     let mutable result = None
     
     interface ILazy<'a> with
