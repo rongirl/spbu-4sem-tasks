@@ -6,9 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="LazyWithThreads.fs" />
     <Compile Include="ILazy.fs" />
     <Compile Include="Lazy.fs" />
+    <Compile Include="LazyLockFree.fs" />
+    <Compile Include="LazyWithThreads.fs" />
   </ItemGroup>
 
 </Project>

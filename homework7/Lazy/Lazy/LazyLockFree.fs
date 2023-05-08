@@ -1,7 +1,7 @@
 ﻿module LazyLockFree
 
 open System.Threading
-open ILazy 
+open LazyInterface
 
 type LazyWithThreads<'a>(supplier: unit -> 'a) =
     let mutable result = None

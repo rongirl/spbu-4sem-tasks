@@ -1,6 +1,6 @@
 ﻿module Lazy
 
-open ILazy 
+open LazyInterface
 
 type Lazy<'a>(supplier: unit -> 'a) =
     let mutable result = None
