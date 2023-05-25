@@ -7,27 +7,25 @@ open LazyInterface
 
 [<Test>]
 let lazyLockFreeTest () =
-    let mutable x = 1
-    let lazyLockFree: ILazy<unit> = Lazy.LazyLockFree.LazyLockFree<unit>(fun () -> x <- Interlocked.Increment(ref x))
-    let task = async { return lazyLockFree.Get() }
-    let tasks = Seq.init 100 (fun _ -> task)
+    let mutable x = 0
+    let lazyLockFree: ILazy<int> = Lazy.LazyLockFree.LazyLockFree<int>(fun () -> Interlocked.Increment(ref x))
+    let tasks = Seq.init 100 (fun _ ->
+        async { return lazyLockFree.Get() |> should equal 1})
     tasks
     |> Async.Parallel
-    |> Async.RunSynchronously
-    |> ignore
-    x |> should equal 2
+    |> Async.RunSynchronously |> ignore
 
 [<Test>]
 let lazyWithLockTest () =
-    let mutable x = 1
-    let lazyWithLock: ILazy<unit> = Lazy.LazyWithLock.LazyWithLock<unit>(fun () -> x <- Interlocked.Increment(ref x))
-    let task = async { return lazyWithLock.Get() }
+    let x = ref 1
+    let lazyWithLock: ILazy<int> = Lazy.LazyWithLock.LazyWithLock<int>(fun () -> Interlocked.Increment(x))
+    let task = async { return lazyWithLock.Get() |> should equal 2}
     let tasks = Seq.init 100 (fun _ -> task)
     tasks
     |> Async.Parallel
     |> Async.RunSynchronously
     |> ignore
-    x |> should equal 2
+    x.Value |> should equal 2
 
 [<Test>]
 let lockFreeAndWithLockInSingleThread () =
@@ -41,4 +39,6 @@ let lockFreeAndWithLockInSingleThread () =
 let lazyInSingleThread () =
     let x = 0
     let myLazy: ILazy<int> = Lazy.Lazy.Lazy<int>(fun () -> x + 1)
-    myLazy.Get() |> should equal 1 
+    let firstRes = myLazy.Get() 
+    let secondRes = myLazy.Get()
+    firstRes |> should equal secondRes
