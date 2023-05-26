@@ -4,24 +4,29 @@ open NUnit.Framework
 open FsUnit
 open MiniCrawler
 
-
-
 [<Test>]
 let findSizeTest () =
-    let pages = findSize "https://acmp.ru/" 
-    Seq.length pages |> should equal 9
+    let pages = findSize "https://ant.lanit-tercom.com/"
+    Seq.length pages |> should equal 11
     let list =
         seq {
-            ("https://www.youtube.com/@user-pn4qp7rl8h/playlists", Some(358270))
-            ("https://vk.com/video-210818063_456239045", Some(148289))
-            ("https://vk.com/video-210818063_456239045", Some(148289))
-            ("https://docs.google.com/spreadsheets/d/1AUmp8plzvMXvqQf2tGpfkaByiDuvG9KSc9j7G7IeaXE/edit?usp=sharing", Some(370498))
-            ("https://www.youtube.com/playlist?list=PLxVrp7RZ0ASiWwJLZNQt-EoNSrDcG269D", Some(361344))
-            ("https://www.youtube.com/playlist?list=PLxVrp7RZ0ASicF-9hZ9GqQ6yQmFMtGLS5", Some(701072))
-            ("https://youtu.be/ZkriIrw7Jfg", Some(688530))
-            ("https://youtu.be/et8tLU6Z81Q", Some(693580))
-            ("https://youtu.be/80rvOPYqhUE", Some(693718))
+            ("https://ant.lanit-tercom.com/category/news/", Some(33516))
+            ("https://ant.lanit-tercom.com/category/theses/", Some(133591))
+            ("https://ant.lanit-tercom.com/category/lectures/", Some(33388))
+            ("https://ant.lanit-tercom.com/public/", Some(22552))
+            ("https://ant.lanit-tercom.com/category/stories/", Some(275736))
+            ("https://ant.lanit-tercom.com/category/%d0%b2%d0%ba%d1%80/", Some(27906))
+            ("https://ant.lanit-tercom.com/category/%d0%ba%d0%b0%d0%bd%d0%b4%d0%b8%d0%b4%d0%b0%d1%82%d1%81%d0%ba%d0%b0%d1%8f-%d0%b4%d0%b8%d1%81%d1%81%d0%b5%d1%80%d1%82%d0%b0%d1%86%d0%b8%d1%8f/", Some(17647))
+            ("https://ant.lanit-tercom.com/category/%d0%b4%d0%be%d0%ba%d1%82%d0%be%d1%80%d1%81%d0%ba%d0%b0%d1%8f-%d0%b4%d0%b8%d1%81%d1%81%d0%b5%d1%80%d1%82%d0%b0%d1%86%d0%b8%d1%8f/", Some(17638))
+            ("https://ant.lanit-tercom.com/category/%d0%b0%d1%81%d0%bf%d0%b8%d1%80%d0%b0%d0%bd%d1%82%d1%8b-%d0%b0-%d0%bd-%d1%82%d0%b5%d1%80%d0%b5%d1%85%d0%be%d0%b2%d0%b0/", Some(22439))
+            ("https://russoft.org", None)
+            ("https://ant.lanit-tercom.com/", Some(28691))
         }
     pages |> should equal list 
 
-    
+
+[<Test>]
+let findSizeTestWithoutPages () =
+    let pagesResult = findSize "https://russoft.org"
+    Seq.length pagesResult |> should equal 0
+    pagesResult |> should equal Seq.empty

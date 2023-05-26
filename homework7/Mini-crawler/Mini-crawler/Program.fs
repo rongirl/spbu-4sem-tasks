@@ -2,10 +2,6 @@
 
 open System.Net.Http
 open System.Text.RegularExpressions
-open System.IO
-open System.Net
-open System.Text.RegularExpressions
-
 
 let downloadPage (url: string) =
     let httpClient = new HttpClient()
@@ -19,7 +15,7 @@ let downloadPage (url: string) =
     }
 
 let findAddresses page = 
-    let regex = Regex("<a href=\"(https://[^\"]+)\">", RegexOptions.Compiled)
+    let regex = Regex(@"<a href=""?(https://?\S*)""", RegexOptions.Compiled)
     [for m in regex.Matches page -> m.Groups.[1].Value]
 
 let findSize url =
