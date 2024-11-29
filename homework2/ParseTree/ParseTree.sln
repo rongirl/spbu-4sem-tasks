@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ParseTree", "ParseTree\ParseTree.fsproj", "{7D9131FB-7645-4541-8932-877D0D534D69}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ParseTree.Tests", "ParseTree.Tests\ParseTree.Tests.fsproj", "{C96787FA-22DD-4C13-BA1D-4EF204F24CC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D9131FB-7645-4541-8932-877D0D534D69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D9131FB-7645-4541-8932-877D0D534D69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D9131FB-7645-4541-8932-877D0D534D69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D9131FB-7645-4541-8932-877D0D534D69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C96787FA-22DD-4C13-BA1D-4EF204F24CC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C96787FA-22DD-4C13-BA1D-4EF204F24CC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C96787FA-22DD-4C13-BA1D-4EF204F24CC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C96787FA-22DD-4C13-BA1D-4EF204F24CC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47D572C2-9989-40E4-B9C1-56F0AFD608CC}
+	EndGlobalSection
+EndGlobal
